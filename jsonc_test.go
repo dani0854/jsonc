@@ -2,7 +2,6 @@ package jsonc
 
 import (
 	"encoding/json"
-	"io/ioutil"
 	"os"
 	"reflect"
 	"testing"
@@ -115,7 +114,7 @@ func TestUnmarshal(t *testing.T) {
 }
 
 func TestReadFromFile(t *testing.T) {
-	tmp, err := ioutil.TempFile("", "ReadFromFileTest")
+	tmp, err := os.CreateTemp("", "ReadFromFileTest")
 	if err != nil {
 		t.Skip("Unable to create temp file.", err)
 	}

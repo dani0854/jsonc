@@ -24,7 +24,7 @@ package jsonc
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"os"
 )
 
 // ToJSON returns JSON equivalent of JSON with comments
@@ -34,7 +34,7 @@ func ToJSON(b []byte) []byte {
 
 // ReadFromFile reads jsonc file and returns JSONC and JSON encodings
 func ReadFromFile(filename string) ([]byte, []byte, error) {
-	data, err := ioutil.ReadFile(filename)
+	data, err := os.ReadFile(filename)
 	if err != nil {
 		return nil, nil, err
 	}
